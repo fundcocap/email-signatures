@@ -89,6 +89,10 @@ Notes:
 - GroSolar is deployed under its confirmed domain, `grosolar.co` — the site itself
   is still pre-launch, but the domain is confirmed, so its transport rule is live
   like every other company's.
+- Electrify Microgrid Limited (EML) is **not** deployed by this script — EML sits
+  on its own separate Microsoft 365 tenant and is deployed independently, outside
+  this repo's deployment flow. Its template and banner (`electrifymicrogrid-ng-*`)
+  still live here for reference.
 - To change a footer later: edit the template HTML in `templates/`, then re-run
   `deploy-signatures.ps1` — never hand-edit the disclaimer text directly in the
   admin center, it'll just get overwritten on the next script run.

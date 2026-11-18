@@ -69,7 +69,13 @@ function Get-FooterHtml {
 $rules = @(
     @{ Name = 'Signature - OneCap Investment';   Domain = 'onecapinvestment.ng';   Slug = 'onecapinvestment-ng' }
     @{ Name = 'Signature - Agronomie';            Domain = 'agronomie.ng';           Slug = 'agronomie-ng' }
-    @{ Name = 'Signature - Electrify Microgrid';  Domain = 'electrifymicrogrid.ng';  Slug = 'electrifymicrogrid-ng' }
+
+    # Electrify Microgrid Limited (EML) is deliberately NOT included here.
+    # EML sits on its own separate Microsoft 365 tenant and its transport
+    # rule is deployed independently, outside this script. Its template
+    # (templates/electrifymicrogrid-ng-footer.html) and banner still exist
+    # in this repo for reference/reuse in that other tenant.
+
     @{ Name = 'Signature - E-Mobilite';           Domain = 'e-mobilite.ng';          Slug = 'e-mobilite-ng' }
     @{ Name = 'Signature - Regenloop';            Domain = 'regenloop.ng';           Slug = 'regenloop-ng' }
     @{ Name = 'Signature - Clean Energy Fund';    Domain = 'cleanenergyfund.ng';     Slug = 'cleanenergyfund-ng' }
