@@ -1,43 +1,61 @@
-<!-- FTR-GROSOLAR-NG-V1 -->
+<!-- FTR-GROSOLAR-NG-V2 -->
 <!-- NOTE: real confirmed domain is grosolar.co (the live site itself is still pre-launch, but the domain is confirmed as of 2026-11-18) -- this footer's own filename/slug still says "-ng" for historical reasons, but the Exchange transport rule in deploy-signatures.ps1 correctly filters on grosolar.co. Tagline "Financing the Solar Future" was user-directed (2026-09-15), not invented. -->
 <!-- Font fallback policy: GroSolar is pre-launch with no established brand font -- using a clean, neutral system sans (Arial, Helvetica, sans-serif) rather than inventing a brand-matching fallback. -->
-<!-- Company address: static line uses the FundCo group HQ "Plot 1610, Adeola Hopewell Street, VI, Lagos" (GroSolar is Nigeria/Lagos-based per its parent group, no independent site content to contradict this). %%StreetAddress%% below is the individual signer's own AD-profile address (may be blank) and is kept separate per spec rule 6. -->
+<!-- Company address: static line uses the FundCo group HQ "Plot 1610, Adeola Hopewell Street, VI, Lagos" (GroSolar is Nigeria/Lagos-based per its parent group, no independent site content to contradict this). No %%StreetAddress%% AD token is used -- most signers' AD profile has this set to the same office address, which was rendering it twice. -->
+<!-- V2 redesign: rounded card (MSO v:roundrect / CSS border-radius fallback) with a two-stripe
+     top bar approximating GroSolar's own orange-to-gold logo gradient (#FF9733 -> #FCD733,
+     the exact two stops sampled from the real logo asset, not invented), a compact trimmed
+     logo lockup beside the contact block instead of a full-width banner, for a more premium,
+     considered feel than the plain flush V1. -->
 <!--[if mso]>
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="left"><tr><td>
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="width:600px;v-text-anchor:top;" arcsize="6%" strokecolor="#e4e7ea" strokeweight="1pt" fillcolor="#ffffff">
+<v:textbox inset="0,0,0,0">
 <![endif]-->
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="left" style="width:600px;max-width:600px;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+<!--[if !mso]><!-->
+<div style="border:1px solid #e4e7ea;border-radius:12px;overflow:hidden;width:598px;">
+<![endif]-->
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
   <tr>
-    <td style="padding:0;line-height:0;font-size:0;">
-      <img src="https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/grosolar-ng-logo-signature@2x.png" width="600" height="80" alt="GroSolar" style="display:block;border:0;outline:none;width:600px;height:80px;">
-    </td>
+    <td width="300" bgcolor="#FF9733" style="background-color:#FF9733;font-size:0;line-height:0;" height="4">&nbsp;</td>
+    <td width="300" bgcolor="#FCD733" style="background-color:#FCD733;font-size:0;line-height:0;" height="4">&nbsp;</td>
   </tr>
   <tr>
-    <td style="padding:16px 2px 0 2px;">
+    <td colspan="2" style="padding:20px 22px 16px 22px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:19px;color:#002554;font-weight:bold;padding:0 0 3px 0;">
-            %%DisplayName%%&nbsp;&nbsp;<span style="color:#8a8d8f;font-weight:normal;">%%Title%%, %%Department%%</span>
+          <td width="350" valign="middle">
+            <img src="https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/grosolar-ng-logo-signature@2x.png" width="350" height="38" alt="GroSolar" style="display:block;border:0;outline:none;width:350px;height:38px;">
           </td>
-        </tr>
-        <tr>
-          <td style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:17px;color:#5a6472;">
-            T: %%PhoneNumber%%&nbsp;&nbsp;|&nbsp;&nbsp;%%StreetAddress%%
+          <td width="20" style="font-size:0;line-height:0;">&nbsp;</td>
+          <td valign="middle" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:16px;color:#5a6472;text-align:right;">
+            %%DisplayName%%<br>
+            <span style="color:#8a8d8f;">%%Title%%, %%Department%%</span>
           </td>
         </tr>
       </table>
     </td>
   </tr>
   <tr>
-    <td style="padding:10px 2px 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:15px;color:#9aa2ab;">
-      GroSolar &nbsp;&middot;&nbsp; Plot 1610, Adeola Hopewell Street, VI, Lagos
+    <td colspan="2" height="1" bgcolor="#f0f1f2" style="background-color:#f0f1f2;font-size:0;line-height:1px;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding:11px 22px;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#5a6472;">
+      T: %%PhoneNumber%%&nbsp;&nbsp;&middot;&nbsp;&nbsp;<strong style="color:#002554;">GroSolar</strong>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Plot 1610, Adeola Hopewell Street, VI, Lagos
     </td>
   </tr>
   <tr>
-    <td style="padding:8px 2px 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:13px;color:#aab1b9;">
+    <td colspan="2" bgcolor="#fafbfb" style="background-color:#fafbfb;font-size:0;line-height:0;" height="1">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#fafbfb" style="background-color:#fafbfb;padding:10px 22px 12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:13px;color:#9aa2ab;">
       This e-mail (including any attachments) is confidential and may be privileged. If you are not the intended recipient, or the person responsible for delivering it to the intended recipient, you may not copy it or use it for any other purpose or disclose its contents to any other person. If you have received this e-mail by mistake, please notify the sender immediately and delete the email (including any attachments). This email is not investment advice and is not a recommendation regarding any transaction or any course of action. GroSolar is not advising the recipient of this email or any other person as to any legal, tax, accounting or regulatory matters in any jurisdiction and therefore GroSolar has no responsibility or liability to the recipient or any person with respect thereto.
     </td>
   </tr>
 </table>
+<!--[if !mso]><!-->
+</div>
+<![endif]-->
 <!--[if mso]>
-</td></tr></table>
+</v:textbox>
+</v:roundrect>
 <![endif]-->

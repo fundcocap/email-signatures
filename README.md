@@ -20,16 +20,16 @@ deploy-signatures.ps1   Exchange Online transport-rule deployment script
 
 | Company | Template | Domain | Font fallback stack | Size (chars) |
 |---|---|---|---|---|
-| FundCo Capital Managers | `fundco-ng-footer.html` | fundco.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Montserrat, geometric) | 4,593 |
-| OneCap Investment Limited | `onecapinvestment-ng-footer.html` | onecapinvestment.ng | `Arial, Helvetica, sans-serif` (site font Inter, grotesque/neutral) | 3,452 |
-| Agronomie | `agronomie-ng-footer.html` | agronomie.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Poppins, geometric) | 3,360 |
-| Electrify Microgrid Limited | `electrifymicrogrid-ng-footer.html` | electrifymicrogrid.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Poppins, geometric) | 4,117 |
-| E-Mobilite | `e-mobilite-ng-footer.html` | e-mobilite.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Space Grotesk, geometric) | 3,606 |
+| FundCo Capital Managers | `fundco-ng-footer.html` | fundco.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Montserrat, geometric) | 5,657 |
+| OneCap Investment Limited | `onecapinvestment-ng-footer.html` | onecapinvestment.ng | `Arial, Helvetica, sans-serif` (site font Inter, grotesque/neutral) | 3,473 |
+| Agronomie | `agronomie-ng-footer.html` | agronomie.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Poppins, geometric) | 3,281 |
+| Electrify Microgrid Limited | `electrifymicrogrid-ng-footer.html` | electrifymicrogrid.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Poppins, geometric) | 4,038 |
+| E-Mobilite | `e-mobilite-ng-footer.html` | e-mobilite.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Space Grotesk, geometric) | 3,527 |
 | Regenloop | `regenloop-ng-footer.html` | regenloop.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Sora, geometric) | 3,081 |
 | Clean Energy Local Currency Fund | `cleanenergyfund-ng-footer.html` | cleanenergyfund.ng | heading `'Segoe UI', Arial, Helvetica, sans-serif` (Montserrat) / body `Arial, Helvetica, sans-serif` (Open Sans) | 3,512 |
 | MeshWorks Solar Limited | `meshworks-ng-footer.html` | meshworks.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Geist, geometric) | 4,022 |
 | GreenKiosk | `greenkiosk-ng-footer.html` | greenkiosk.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Geist, geometric) | 3,815 |
-| GroSolar **(pre-launch, domain confirmed)** | `grosolar-ng-footer.html` | grosolar.co | `Arial, Helvetica, sans-serif` (no brand font established yet, deliberately neutral) | 3,475 |
+| GroSolar **(pre-launch, domain confirmed)** | `grosolar-ng-footer.html` | grosolar.co | `Arial, Helvetica, sans-serif` (no brand font established yet, deliberately neutral) | 4,825 |
 
 All 10 are well under the spec's ~8,000-character ceiling (checked via `wc -c`, matches
 the spec's `(Get-Content file -Raw).Length` check).

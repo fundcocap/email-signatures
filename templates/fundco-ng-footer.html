@@ -1,72 +1,86 @@
-<!-- FTR-FUNDCO-NG-V1 -->
+<!-- FTR-FUNDCO-NG-V2 -->
 <!-- Font fallback policy: site font is Montserrat (geometric sans) -> mapped to 'Segoe UI', Arial, Helvetica, sans-serif (Segoe UI is the closest geometric-humanist safe font and is what Outlook/Windows renders natively). -->
-<!-- Company address: static line uses confirmed FundCo group HQ "Plot 1610, Adeola Hopewell Street, VI, Lagos". %%StreetAddress%% below is the individual signer's own AD-profile address (may be blank) and is kept separate per spec rule 6. -->
+<!-- Company address: static line uses confirmed FundCo group HQ "Plot 1610, Adeola Hopewell Street, VI, Lagos". No %%StreetAddress%% AD token is used -- most signers' AD profile has this set to the same office address, which was rendering it twice. -->
+<!-- V2 redesign: rounded card (MSO v:roundrect / CSS border-radius fallback), compact trimmed
+     logo lockup in its own left column instead of a full-width banner, a vertical navy rule
+     separating logo from contact block, and a small rounded "chip" for the job title for a
+     more premium, considered feel than the plain full-width-banner V1. -->
 <!--[if mso]>
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="left"><tr><td>
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="width:600px;v-text-anchor:top;" arcsize="6%" strokecolor="#d7dee5" strokeweight="1pt" fillcolor="#ffffff">
+<v:textbox inset="0,0,0,0">
 <![endif]-->
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="left" style="width:600px;max-width:600px;border-collapse:collapse;font-family:'Segoe UI',Arial,Helvetica,sans-serif;">
+<!--[if !mso]><!-->
+<div style="border:1px solid #d7dee5;border-radius:12px;overflow:hidden;width:598px;">
+<![endif]-->
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;border-collapse:collapse;font-family:'Segoe UI',Arial,Helvetica,sans-serif;">
   <tr>
-    <td colspan="2" style="padding:0;line-height:0;font-size:0;">
-      <img src="https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/fundco-ng-logo-signature@2x.png" width="600" height="100" alt="FundCo Capital Managers" style="display:block;border:0;outline:none;width:600px;height:100px;">
-    </td>
+    <td colspan="3" bgcolor="#002c57" height="4" style="background-color:#002c57;font-size:0;line-height:4px;">&nbsp;</td>
   </tr>
-  <!--[if !mso]><!-->
   <tr>
-    <td width="4" bgcolor="#002c57" style="background-color:#002c57;font-size:0;line-height:0;">&nbsp;</td>
-    <td style="padding:18px 22px 16px 22px;">
+    <td width="24" style="font-size:0;line-height:0;">&nbsp;</td>
+    <td style="padding:20px 20px 18px 0;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td style="font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:19px;color:#002c57;font-weight:bold;padding:0 0 3px 0;">
-            %%DisplayName%%<span style="color:#8a8d8f;font-weight:normal;"> &mdash; %%Title%%, %%Department%%</span>
+          <td width="308" valign="middle">
+            <img src="https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/fundco-ng-logo-signature@2x.png" width="308" height="50" alt="FundCo Capital Managers" style="display:block;border:0;outline:none;width:308px;height:50px;">
           </td>
-        </tr>
-        <tr>
-          <td style="font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:12px;line-height:17px;color:#6b6b6b;padding:0 0 3px 0;">
-            %%StreetAddress%%
-          </td>
-        </tr>
-        <tr>
-          <td style="font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#004a91;">
-            <strong style="color:#002c57;">FundCo Capital Managers</strong>&nbsp;&nbsp;|&nbsp;&nbsp;Plot 1610, Adeola Hopewell Street, VI, Lagos&nbsp;&nbsp;|&nbsp;&nbsp;T: %%PhoneNumber%%
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <!--<![endif]-->
-  <!--[if mso]>
-  <tr>
-    <td width="4" bgcolor="#002c57" style="background-color:#002c57;font-size:0;line-height:0;">&nbsp;</td>
-    <td style="padding:18px 22px 16px 22px;">
-      <table role="presentation" width="574" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:19px;color:#002c57;font-weight:bold;">
-            %%DisplayName%% &mdash; %%Title%%, %%Department%%
-          </td>
-        </tr>
-        <tr>
-          <td style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:17px;color:#6b6b6b;">
-            %%StreetAddress%%
-          </td>
-        </tr>
-        <tr>
-          <td style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#004a91;">
-            <strong style="color:#002c57;">FundCo Capital Managers</strong> | Plot 1610, Adeola Hopewell Street, VI, Lagos | T: %%PhoneNumber%%
+          <td width="1" bgcolor="#dde4ea" style="background-color:#dde4ea;font-size:0;line-height:0;">&nbsp;</td>
+          <td width="20" style="font-size:0;line-height:0;">&nbsp;</td>
+          <td valign="middle">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;line-height:18px;color:#002c57;font-weight:bold;padding:0 0 4px 0;">
+                  %%DisplayName%%
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0 0 7px 0;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td bgcolor="#eef3f8" style="background-color:#eef3f8;border-radius:10px;padding:2px 9px;font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:10px;line-height:14px;color:#004a91;font-weight:bold;">
+                        %%Title%%, %%Department%%
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:12px;line-height:17px;color:#54606c;">
+                  T: %%PhoneNumber%%
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
       </table>
     </td>
-  </tr>
-  <![endif]-->
-  <tr>
-    <td colspan="2" bgcolor="#424242" height="4" style="background-color:#424242;font-size:0;line-height:4px;">&nbsp;</td>
+    <td width="24" style="font-size:0;line-height:0;">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" style="padding:10px 22px 0 22px;font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:9px;line-height:13px;color:#8a8a8a;">
+    <td colspan="3" height="1" bgcolor="#eef1f4" style="background-color:#eef1f4;font-size:0;line-height:1px;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="24" style="font-size:0;line-height:0;">&nbsp;</td>
+    <td style="padding:10px 20px 10px 0;font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:11px;line-height:15px;color:#6b7684;">
+      <strong style="color:#002c57;">FundCo Capital Managers</strong>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Plot 1610, Adeola Hopewell Street, VI, Lagos
+    </td>
+    <td width="24" style="font-size:0;line-height:0;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" bgcolor="#f7f9fb" style="background-color:#f7f9fb;font-size:0;line-height:0;" height="1">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="24" style="font-size:0;line-height:0;">&nbsp;</td>
+    <td bgcolor="#f7f9fb" style="background-color:#f7f9fb;padding:9px 20px 11px 0;font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:9px;line-height:13px;color:#9aa4ae;">
       This e-mail (including any attachments) is confidential and may be privileged. If you are not the intended recipient, or the person responsible for delivering it to the intended recipient, you may not copy it or use it for any other purpose or disclose its contents to any other person. If you have received this e-mail by mistake, please notify the sender immediately and delete the email (including any attachments). This email is not investment advice and is not a recommendation regarding any transaction or any course of action. FundCo is not advising the recipient of this email or any other person as to any legal, tax, accounting or regulatory matters in any jurisdiction and therefore FundCo has no responsibility or liability to the recipient or any person with respect thereto.
     </td>
+    <td width="24" bgcolor="#f7f9fb" style="background-color:#f7f9fb;font-size:0;line-height:0;">&nbsp;</td>
   </tr>
 </table>
+<!--[if !mso]><!-->
+</div>
+<![endif]-->
 <!--[if mso]>
-</td></tr></table>
+</v:textbox>
+</v:roundrect>
 <![endif]-->
