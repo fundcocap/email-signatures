@@ -11,9 +11,8 @@
   it acts as the catch-all: it only ever fires for fundco.ng senders, or anyone
   not matched by an earlier, more specific rule.
 
-  GroSolar is intentionally NOT included below. grosolar.ng is an unconfirmed
-  placeholder domain (no live site yet - see SPEC.md). Uncomment its block once
-  the real domain is confirmed.
+  GroSolar is included below under its confirmed domain, grosolar.co (the site
+  itself is still pre-launch, but the domain is confirmed - see SPEC.md).
 
   Defaults to AuditAndNotify (safe - no visible change to any sent mail) unless
   -Enforce is passed. Supports the standard -WhatIf / -Confirm parameters.
@@ -76,11 +75,7 @@ $rules = @(
     @{ Name = 'Signature - Clean Energy Fund';    Domain = 'cleanenergyfund.ng';     Slug = 'cleanenergyfund-ng' }
     @{ Name = 'Signature - MeshWorks Solar';      Domain = 'meshworks.ng';           Slug = 'meshworks-ng' }
     @{ Name = 'Signature - GreenKiosk';           Domain = 'greenkiosk.ng';          Slug = 'greenkiosk-ng' }
-
-    # GroSolar: grosolar.ng is an UNCONFIRMED placeholder domain (no live site
-    # yet - see SPEC.md). Uncomment once the real domain is confirmed, keeping
-    # it above the FundCo catch-all below.
-    # @{ Name = 'Signature - GroSolar'; Domain = 'grosolar.ng'; Slug = 'grosolar-ng' }
+    @{ Name = 'Signature - GroSolar';             Domain = 'grosolar.co';            Slug = 'grosolar-ng' }
 
     @{ Name = 'Signature - FundCo (catch-all)';   Domain = $null;                   Slug = 'fundco-ng' }
 )

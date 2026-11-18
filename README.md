@@ -29,7 +29,7 @@ deploy-signatures.ps1   Exchange Online transport-rule deployment script
 | Clean Energy Local Currency Fund | `cleanenergyfund-ng-footer.html` | cleanenergyfund.ng | heading `'Segoe UI', Arial, Helvetica, sans-serif` (Montserrat) / body `Arial, Helvetica, sans-serif` (Open Sans) | 3,512 |
 | MeshWorks Solar Limited | `meshworks-ng-footer.html` | meshworks.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Geist, geometric) | 4,022 |
 | GreenKiosk | `greenkiosk-ng-footer.html` | greenkiosk.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Geist, geometric) | 3,815 |
-| GroSolar **(pre-launch — domain unconfirmed)** | `grosolar-ng-footer.html` | grosolar.ng *(placeholder)* | `Arial, Helvetica, sans-serif` (no brand font established yet, deliberately neutral) | 3,475 |
+| GroSolar **(pre-launch, domain confirmed)** | `grosolar-ng-footer.html` | grosolar.co | `Arial, Helvetica, sans-serif` (no brand font established yet, deliberately neutral) | 3,475 |
 
 All 10 are well under the spec's ~8,000-character ceiling (checked via `wc -c`, matches
 the spec's `(Get-Content file -Raw).Length` check).
@@ -86,10 +86,9 @@ Notes:
   sender only ever picks up their own company's footer. FundCo's own rule has no
   domain filter and sits last, acting as the catch-all for fundco.ng senders and
   anyone not matched by an earlier rule.
-- GroSolar is deliberately **not** deployed by the script yet — `grosolar.ng` is an
-  unconfirmed placeholder domain with no live site. Its template and banner exist
-  and are correct; uncomment its block in `deploy-signatures.ps1` once the real
-  domain is confirmed.
+- GroSolar is deployed under its confirmed domain, `grosolar.co` — the site itself
+  is still pre-launch, but the domain is confirmed, so its transport rule is live
+  like every other company's.
 - To change a footer later: edit the template HTML in `templates/`, then re-run
   `deploy-signatures.ps1` — never hand-edit the disclaimer text directly in the
   admin center, it'll just get overwritten on the next script run.

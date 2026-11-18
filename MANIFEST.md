@@ -22,16 +22,15 @@ hotlinked by the HTML.
 | Clean Energy Local Currency Fund | `cleanenergyfund-ng-footer.html` | `[LOGO_URL_CLEANENERGYFUND_NG]` | `https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/cleanenergyfund-ng-logo-signature@2x.png` |
 | MeshWorks Solar Limited | `meshworks-ng-footer.html` | `[LOGO_URL_MESHWORKS_NG]` | `https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/meshworks-ng-logo-signature@2x.png` |
 | GreenKiosk | `greenkiosk-ng-footer.html` | `[LOGO_URL_GREENKIOSK_NG]` | `https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/greenkiosk-ng-logo-signature@2x.png` |
-| GroSolar **(domain unconfirmed)** | `grosolar-ng-footer.html` | `[LOGO_URL_GROSOLAR_NG]` | `https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/grosolar-ng-logo-signature@2x.png` |
+| GroSolar **(pre-launch, domain confirmed as grosolar.co)** | `grosolar-ng-footer.html` | `[LOGO_URL_GROSOLAR_NG]` | `https://raw.githubusercontent.com/FundCo-Capital-Managers-Limited/email-signatures/main/export/grosolar-ng-logo-signature@2x.png` |
 
 Notes:
 - Every URL above resolves to a 1x-display, 2x-resolution PNG; the `<img>` tag in each
   template sets `width`/`height` to the 1x size so it renders crisp on retina displays
   without visually bloating the footer.
-- GroSolar's row is included for completeness (its image and template both exist and
-  are correct), but its real `grosolar.ng` domain has never been confirmed live — see
-  SPEC.md and the `deploy-signatures.ps1` comments, which deliberately exclude it from
-  the actual Exchange Online deployment until that's resolved.
+- GroSolar's real domain is confirmed as `grosolar.co` (the site itself is still
+  pre-launch) — its transport rule is deployed like every other company's, see
+  `deploy-signatures.ps1`.
 - Open item, not yet decided: whether the `email-signatures` GitHub repo staying public
   (required for anonymous `raw.githubusercontent.com` hotlinking) is acceptable
   long-term, or whether the images should move to a private host with public-read only
