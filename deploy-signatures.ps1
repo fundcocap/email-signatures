@@ -42,6 +42,16 @@
   - Edit the footer by editing templates/<slug>-footer.html and re-running
     this script - never hand-edit the disclaimer text in the admin center,
     it will just get overwritten on the next run.
+  - Every rule carries an ExceptIfBodyContainsWords condition keyed on a
+    sentence that's identical across all 10 footers ("This e-mail (including
+    any attachments) is confidential and may be privileged"). Without this,
+    Exchange re-appends the full HTML footer on every single reply in a
+    thread, and since replies quote the prior message (footer included)
+    further down the body, a few replies back and forth ends up with
+    several signature blocks stacked on top of each other. With the
+    exception, a message only gets a footer appended if it doesn't already
+    contain one further down - i.e. once per thread, on the first message,
+    not on every reply.
 #>
 
 [CmdletBinding(SupportsShouldProcess)]
@@ -57,6 +67,12 @@ if (-not (Get-Command New-TransportRule -ErrorAction SilentlyContinue)) {
 
 $repoRoot     = Split-Path -Parent $MyInvocation.MyCommand.Path
 $templatesDir = Join-Path $repoRoot 'templates'
+
+# Identical across all 10 footers -- used as an anti-stacking marker (see .NOTES above).
+# If a message already contains this sentence further down (e.g. a reply quoting an
+# earlier message that already got a footer), the rule skips it instead of appending
+# a second copy.
+$antiStackingPhrase = 'This e-mail (including any attachments) is confidential and may be privileged'
 
 function Get-FooterHtml {
     param([string]$Slug)
@@ -99,9 +115,10 @@ foreach ($r in $rules) {
     $html = Get-FooterHtml -Slug $r.Slug
 
     $commonParams = @{
-        ApplyHtmlDisclaimerLocation      = 'Append'
-        ApplyHtmlDisclaimerText          = $html
+        ApplyHtmlDisclaimerLocation       = 'Append'
+        ApplyHtmlDisclaimerText           = $html
         ApplyHtmlDisclaimerFallbackAction = 'Wrap'
+        ExceptIfBodyContainsWords         = @($antiStackingPhrase)
         Mode                              = $mode
         Priority                          = $priority
         Comments                          = "Managed by deploy-signatures.ps1 - edit templates/$($r.Slug)-footer.html and re-run instead of hand-editing this rule."
