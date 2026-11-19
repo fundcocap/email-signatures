@@ -20,7 +20,7 @@ deploy-signatures.ps1   Exchange Online transport-rule deployment script
 
 | Company | Template | Domain | Font fallback stack | Size (chars) |
 |---|---|---|---|---|
-| FundCo Capital Managers | `fundco-ng-footer.html` | fundco.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Montserrat, geometric) | 5,850 |
+| FundCo Capital Managers | `fundco-ng-footer.html` | fundco.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Montserrat, geometric) | 5,318 |
 | OneCap Investment Limited | `onecapinvestment-ng-footer.html` | onecapinvestment.ng | `Arial, Helvetica, sans-serif` (site font Inter, grotesque/neutral) | 3,473 |
 | Agronomie | `agronomie-ng-footer.html` | agronomie.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Poppins, geometric) | 3,281 |
 | Electrify Microgrid Limited | `electrifymicrogrid-ng-footer.html` | electrifymicrogrid.ng | `'Segoe UI', Arial, Helvetica, sans-serif` (site font Poppins, geometric) | 4,038 |

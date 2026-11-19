@@ -143,7 +143,8 @@ foreach ($r in $rules) {
         if ($PSCmdlet.ShouldProcess($r.Name, 'Set-TransportRule')) {
             Set-TransportRule -Identity $r.Name @commonParams -ErrorAction SilentlyContinue -ErrorVariable callErr
             if ($callErr) {
-                Write-Host "FAILED to update: $($r.Name) (priority $priority) - $($callErr[0].Exception.Message)" -ForegroundColor Red
+                Write-Host "FAILED to update: $($r.Name) (priority $priority)" -ForegroundColor Red
+                $callErr | ForEach-Object { Write-Host "    $($_.ToString())" -ForegroundColor Red }
                 $failures += $r.Name
             } else {
                 Write-Host "Updated: $($r.Name) (priority $priority)" -ForegroundColor Green
@@ -153,7 +154,8 @@ foreach ($r in $rules) {
         if ($PSCmdlet.ShouldProcess($r.Name, 'New-TransportRule')) {
             New-TransportRule -Name $r.Name @commonParams -ErrorAction SilentlyContinue -ErrorVariable callErr
             if ($callErr) {
-                Write-Host "FAILED to create: $($r.Name) (priority $priority) - $($callErr[0].Exception.Message)" -ForegroundColor Red
+                Write-Host "FAILED to create: $($r.Name) (priority $priority)" -ForegroundColor Red
+                $callErr | ForEach-Object { Write-Host "    $($_.ToString())" -ForegroundColor Red }
                 $failures += $r.Name
             } else {
                 Write-Host "Created: $($r.Name) (priority $priority)" -ForegroundColor Green
