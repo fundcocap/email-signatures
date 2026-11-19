@@ -42,7 +42,7 @@
   - Edit the footer by editing templates/<slug>-footer.html and re-running
     this script - never hand-edit the disclaimer text in the admin center,
     it will just get overwritten on the next run.
-  - Every rule carries an ExceptIfBodyContainsWords condition keyed on a
+  - Every rule carries an ExceptIfSubjectOrBodyContainsWords condition keyed on a
     sentence that's identical across all 10 footers ("This e-mail (including
     any attachments) is confidential and may be privileged"). Without this,
     Exchange re-appends the full HTML footer on every single reply in a
@@ -118,7 +118,7 @@ foreach ($r in $rules) {
         ApplyHtmlDisclaimerLocation       = 'Append'
         ApplyHtmlDisclaimerText           = $html
         ApplyHtmlDisclaimerFallbackAction = 'Wrap'
-        ExceptIfBodyContainsWords         = @($antiStackingPhrase)
+        ExceptIfSubjectOrBodyContainsWords = @($antiStackingPhrase)
         Mode                              = $mode
         Priority                          = $priority
         Comments                          = "Managed by deploy-signatures.ps1 - edit templates/$($r.Slug)-footer.html and re-run instead of hand-editing this rule."
