@@ -111,6 +111,7 @@ if (-not $Enforce) {
 }
 
 $priority = 0
+$failures = @()
 foreach ($r in $rules) {
     $html = Get-FooterHtml -Slug $r.Slug
 
@@ -130,19 +131,43 @@ foreach ($r in $rules) {
 
     $existing = Get-TransportRule -Identity $r.Name -ErrorAction SilentlyContinue
 
+    # The EXO remoting proxy sometimes surfaces a server-side rejection (e.g. the
+    # disclaimer HTML failing Exchange's own validation) as a non-terminating
+    # Write-Error from inside the proxy function, which $ErrorActionPreference =
+    # 'Stop' does NOT catch -- so without explicitly checking for it here, the
+    # script would print "Updated"/"Created" even though nothing actually changed.
+    # -ErrorVariable + -ErrorAction SilentlyContinue lets us detect that case.
+    $callErr = $null
+
     if ($existing) {
         if ($PSCmdlet.ShouldProcess($r.Name, 'Set-TransportRule')) {
-            Set-TransportRule -Identity $r.Name @commonParams
-            Write-Host "Updated: $($r.Name) (priority $priority)" -ForegroundColor Green
+            Set-TransportRule -Identity $r.Name @commonParams -ErrorAction SilentlyContinue -ErrorVariable callErr
+            if ($callErr) {
+                Write-Host "FAILED to update: $($r.Name) (priority $priority) - $($callErr[0].Exception.Message)" -ForegroundColor Red
+                $failures += $r.Name
+            } else {
+                Write-Host "Updated: $($r.Name) (priority $priority)" -ForegroundColor Green
+            }
         }
     } else {
         if ($PSCmdlet.ShouldProcess($r.Name, 'New-TransportRule')) {
-            New-TransportRule -Name $r.Name @commonParams
-            Write-Host "Created: $($r.Name) (priority $priority)" -ForegroundColor Green
+            New-TransportRule -Name $r.Name @commonParams -ErrorAction SilentlyContinue -ErrorVariable callErr
+            if ($callErr) {
+                Write-Host "FAILED to create: $($r.Name) (priority $priority) - $($callErr[0].Exception.Message)" -ForegroundColor Red
+                $failures += $r.Name
+            } else {
+                Write-Host "Created: $($r.Name) (priority $priority)" -ForegroundColor Green
+            }
         }
     }
 
     $priority++
+}
+
+if ($failures.Count -gt 0) {
+    Write-Host "`n$($failures.Count) rule(s) FAILED and still have their old disclaimer text/settings live:" -ForegroundColor Red
+    $failures | ForEach-Object { Write-Host "  - $_" -ForegroundColor Red }
+    Write-Host "Fix the underlying issue (often overly-nested HTML in the template) and re-run." -ForegroundColor Red
 }
 
 Write-Host "`nDone. Review with:" -ForegroundColor Cyan
