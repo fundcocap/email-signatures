@@ -6,10 +6,17 @@
 .DESCRIPTION
   One transport rule per confirmed company domain (templates/<slug>-footer.html),
   evaluated most-specific-domain-first with -StopRuleProcessing, so a sender only
-  ever picks up their own company's footer. FundCo Capital Managers' own rule has
-  NO domain filter and sits at the lowest priority (highest Priority number), so
-  it acts as the catch-all: it only ever fires for fundco.ng senders, or anyone
-  not matched by an earlier, more specific rule.
+  ever picks up their own company's footer. FundCo Capital Managers' own rule
+  filters on SenderDomainIs 'fundco.ng' like every other rule, and sits last
+  (highest Priority number) purely so the more specific group-subsidiary domains
+  get first refusal.
+
+  Every rule also carries FromScope = 'InOrganization', so a rule can only ever
+  apply a disclaimer to mail actually sent by someone inside the tenant - never
+  to inbound mail from external senders, regardless of sender-domain spoofing.
+  (A rule with no condition at all, as FundCo's briefly had, matches EVERY
+  message Exchange's transport pipeline touches, inbound and outbound alike -
+  this is what caused the group-wide footer-on-everything bug fixed 2026-11-23.)
 
   GroSolar is included below under its confirmed domain, grosolar.co (the site
   itself is still pre-launch, but the domain is confirmed - see SPEC.md).
@@ -99,7 +106,7 @@ $rules = @(
     @{ Name = 'Signature - GreenKiosk';           Domain = 'greenkiosk.ng';          Slug = 'greenkiosk-ng' }
     @{ Name = 'Signature - GroSolar';             Domain = 'grosolar.co';            Slug = 'grosolar-ng' }
 
-    @{ Name = 'Signature - FundCo (catch-all)';   Domain = $null;                   Slug = 'fundco-ng' }
+    @{ Name = 'Signature - FundCo (catch-all)';   Domain = 'fundco.ng';             Slug = 'fundco-ng' }
 )
 
 $mode = if ($Enforce) { 'Enforce' } else { 'AuditAndNotify' }
@@ -120,6 +127,7 @@ foreach ($r in $rules) {
         ApplyHtmlDisclaimerText           = $html
         ApplyHtmlDisclaimerFallbackAction = 'Wrap'
         ExceptIfSubjectOrBodyContainsWords = @($antiStackingPhrase)
+        FromScope                         = 'InOrganization'
         Mode                              = $mode
         Priority                          = $priority
         Comments                          = "Managed by deploy-signatures.ps1 - edit templates/$($r.Slug)-footer.html and re-run instead of hand-editing this rule."

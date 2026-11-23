@@ -83,9 +83,13 @@ Get-TransportRule | Where-Object { $_.Comments -like 'Managed by deploy-signatur
 
 Notes:
 - Rules are ordered most-specific-domain-first with `-StopRuleProcessing`, so a
-  sender only ever picks up their own company's footer. FundCo's own rule has no
-  domain filter and sits last, acting as the catch-all for fundco.ng senders and
-  anyone not matched by an earlier rule.
+  sender only ever picks up their own company's footer. FundCo's own rule filters
+  on `SenderDomainIs fundco.ng` like every other rule and simply sits last in
+  priority. Every rule also carries `FromScope = 'InOrganization'`, so a rule can
+  only ever stamp mail actually sent by someone inside the tenant, never inbound
+  mail from external senders. (FundCo's rule briefly had no condition at all,
+  which matches every message transport touches, inbound and outbound - that's
+  what caused the group-wide footer-on-everything bug fixed 2026-11-23.)
 - **Signatures don't stack on replies.** Every rule has an `ExceptIfSubjectOrBodyContainsWords`
   condition keyed on a sentence identical across all 10 footers ("This e-mail
   (including any attachments) is confidential and may be privileged"). Without this,
